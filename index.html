@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#17382f" />
+  <meta name="description" content="2026年シルバーウィーク、兵庫県佐用町・ポパイテンキャンプ場を拠点に楽しむ2泊3日の旅のしおり。" />
+  <title>旅のしおり｜Sayo Silver Week 2026</title>
+
+  <style>
+    :root{
+      --ink:#202a26;
+      --muted:#66706b;
+      --cream:#f7f2e8;
+      --paper:#fffdf8;
+      --forest:#17382f;
+      --forest-2:#285345;
+      --navy:#12263b;
+      --terracotta:#b95c3b;
+      --mustard:#c79d43;
+      --line:#ddd3c2;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(22,39,31,.10);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1180px;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
+      line-height:1.8;
+      letter-spacing:.02em;
+      overflow-x:hidden;
+    }
+    body::selection{background:#d7e5dd}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .serif{
+      font-family:"Yu Mincho","Hiragino Mincho ProN","HGS明朝E",serif;
+      letter-spacing:.03em;
+    }
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .eyebrow{
+      display:flex;align-items:center;gap:10px;
+      font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--terracotta);
+    }
+    .eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
+    .section{padding:104px 0;position:relative}
+    .section-title{
+      margin:12px 0 0;
+      font-size:clamp(32px,4vw,54px);
+      line-height:1.25;
+      font-weight:600;
+    }
+    .section-lead{color:var(--muted);max-width:760px;margin-top:18px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.25);
+      background:rgba(0,0,0,.22);backdrop-filter:blur(12px);
+      color:#fff;font-size:13px;
+    }
+
+    /* Header */
+    .site-header{
+      position:fixed;z-index:40;top:0;left:0;right:0;
+      height:76px;display:flex;align-items:center;
+      transition:.35s var(--ease);
+    }
+    .site-header.scrolled{
+      background:rgba(18,38,59,.88);
+      backdrop-filter:blur(18px);
+      box-shadow:0 10px 30px rgba(0,0,0,.12);
+    }
+    .header-inner{
+      width:min(1320px,calc(100% - 32px));margin:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:24px;color:#fff;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand-mark{
+      width:42px;height:42px;border:1px solid rgba(255,255,255,.38);
+      border-radius:50%;display:grid;place-items:center;font-size:20px;
+    }
+    .brand small{display:block;font-size:9px;letter-spacing:.14em;opacity:.7}
+    .nav{display:flex;gap:24px;font-size:13px}
+    .nav a{opacity:.88;position:relative}
+    .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:#fff;transition:.25s}
+    .nav a:hover::after{right:0}
+    .header-cta{
+      background:#fff;color:var(--navy);padding:11px 17px;border-radius:999px;font-weight:700;font-size:12px;
+    }
+    .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px}
+
+    /* Hero */
+    .hero{
+      min-height:100svh;position:relative;display:grid;align-items:end;overflow:hidden;
+      background:
+        linear-gradient(180deg,rgba(5,18,30,.2) 0%,rgba(5,18,30,.34) 55%,rgba(5,18,30,.78) 100%),
+        url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=2200&q=88") center/cover no-repeat;
+      color:#fff;
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 70% 10%,rgba(44,93,128,.45),transparent 36%);
+      pointer-events:none;
+    }
+    .hero-bg{position:absolute;inset:-6% -2%;will-change:transform}
+    .hero-content{position:relative;z-index:2;padding:145px 0 70px}
+    .hero-kicker{font-size:14px;letter-spacing:.18em;color:#e8cf9d;margin-bottom:22px}
+    .hero h1{
+      margin:0;
+      font-size:clamp(46px,7vw,88px);
+      line-height:1.15;font-weight:500;max-width:940px;text-shadow:0 4px 30px rgba(0,0,0,.18);
+    }
+    .hero-copy{font-size:16px;max-width:720px;margin:26px 0 28px;color:rgba(255,255,255,.9)}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      min-height:50px;padding:0 22px;border-radius:999px;border:1px solid transparent;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:800;font-size:14px;transition:.28s var(--ease);cursor:pointer;
+    }
+    .btn-primary{background:#e7efe8;color:var(--forest)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+    .btn-ghost{border-color:rgba(255,255,255,.45);background:rgba(0,0,0,.12);color:#fff;backdrop-filter:blur(8px)}
+    .scroll-cue{
+      position:absolute;right:42px;bottom:38px;z-index:2;
+      display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;
+    }
+    .scroll-cue span{width:1px;height:58px;background:rgba(255,255,255,.45);position:relative;overflow:hidden}
+    .scroll-cue span::after{
+      content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;
+      background:#fff;animation:scrollline 1.8s infinite ease-in-out;
+    }
+    @keyframes scrollline{to{top:110%}}
+    .leaf{
+      position:absolute;z-index:1;font-size:26px;opacity:.8;filter:drop-shadow(0 5px 10px rgba(0,0,0,.15));
+      animation:floatLeaf 9s infinite ease-in-out;
+    }
+    .leaf.l1{top:19%;right:7%;animation-delay:-2s}
+    .leaf.l2{top:32%;right:16%;animation-delay:-6s;font-size:20px}
+    .leaf.l3{top:13%;left:8%;animation-delay:-4s;font-size:18px}
+    @keyframes floatLeaf{
+      0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}
+      50%{transform:translate3d(22px,38px,0) rotate(16deg)}
+    }
+
+    /* Concept */
+    .concept{background:var(--cream);overflow:hidden}
+    .concept::before,.souvenir::before{
+      content:"";position:absolute;inset:0;
+      background-image:radial-gradient(#bdaf98 0.7px,transparent .7px);
+      background-size:14px 14px;opacity:.12;pointer-events:none;
+    }
+    .concept-grid{
+      display:grid;grid-template-columns:.9fr 1.25fr 1.25fr 1.25fr;gap:18px;align-items:stretch;margin-top:36px;
+    }
+    .concept-intro{padding:24px 12px 24px 0;display:flex;flex-direction:column;justify-content:center}
+    .concept-intro p{color:var(--muted)}
+    .concept-card{
+      background:#fff;border:1px solid #eee4d5;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(48,38,22,.06);
+      transition:.35s var(--ease);
+    }
+    .concept-card:hover{transform:translateY(-8px)}
+    .concept-card .photo{height:172px;background-size:cover;background-position:center}
+    .concept-card:nth-child(2) .photo{background-image:url("https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=82")}
+    .concept-card:nth-child(3) .photo{background-image:url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=82")}
+    .concept-card:nth-child(4) .photo{background-image:url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=900&q=82")}
+    .concept-card .body{padding:20px}
+    .concept-card .tag{font-size:12px;color:var(--terracotta);font-weight:800}
+    .concept-card h3{margin:3px 0 8px;font-size:20px}
+    .concept-card p{font-size:13px;color:var(--muted);margin:0}
+
+    /* itinerary */
+    .itinerary{background:#fff}
+    .itinerary-head{display:flex;justify-content:space-between;gap:32px;align-items:end}
+    .days{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+    .day{
+      border-radius:24px;border:1px solid var(--line);overflow:hidden;
+      background:linear-gradient(180deg,#fffaf2 0%,#fff 40%);
+      min-height:630px;box-shadow:0 10px 34px rgba(44,52,47,.06);position:relative;
+    }
+    .day:nth-child(2){background:linear-gradient(180deg,#f2f7f3 0%,#fff 40%)}
+    .day:nth-child(3){background:linear-gradient(180deg,#f4f7f3 0%,#fff 40%)}
+    .day-head{padding:26px 26px 18px;border-bottom:1px solid #eee4d6}
+    .day-label{font-weight:900;letter-spacing:.08em;color:var(--terracotta)}
+    .day:nth-child(2) .day-label,.day:nth-child(3) .day-label{color:var(--forest-2)}
+    .day h3{font-size:24px;margin:5px 0 0}
+    .timeline{padding:26px 24px 30px 38px}
+    .item{position:relative;padding:0 0 26px 32px}
+    .item::before{content:"";position:absolute;left:6px;top:10px;bottom:-8px;width:1px;background:#d2c7b7;transform-origin:top}
+    .item:last-child::before{display:none}
+    .item::after{content:"";position:absolute;left:1px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--terracotta);box-shadow:0 0 0 5px #fff}
+    .day:nth-child(2) .item::after,.day:nth-child(3) .item::after{background:var(--forest-2)}
+    .time{font-size:12px;font-weight:900;color:#7d6f61;margin-bottom:3px}
+    .spot{font-size:16px;font-weight:900}
+    .note{font-size:12px;color:var(--muted);line-height:1.6}
+    .day-visual{height:150px;margin:0 20px 20px;border-radius:16px;background-size:cover;background-position:center}
+    .d1{background-image:url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=900&q=80")}
+    .d2{background-image:url("https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=80")}
+    .d3{background-image:url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=900&q=80")}
+
+    /* spots */
+    .spots{background:var(--forest);color:#fff}
+    .spots .section-lead{color:rgba(255,255,255,.7)}
+    .spots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+    .spot-card{
+      background:#f8f5ed;color:var(--ink);border-radius:18px;overflow:hidden;
+      transition:.3s var(--ease);min-height:100%;
+    }
+    .spot-card:hover{transform:translateY(-7px) scale(1.01)}
+    .spot-card .spot-img{height:170px;background-size:cover;background-position:center}
+    .spot-card .spot-body{padding:18px}
+    .spot-card h3{font-size:17px;margin:0 0 7px}
+    .spot-card p{font-size:12px;color:var(--muted);margin:0}
+    .spot-card .meta{border-top:1px solid #dfd8ca;margin-top:14px;padding-top:10px;font-size:11px;color:#6b6257}
+    .s1{background-image:url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=82")}
+    .s2{background-image:url("https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=82")}
+    .s3{background-image:url("https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?auto=format&fit=crop&w=800&q=82")}
+    .s4{background-image:url("https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=82")}
+    .s5{background-image:url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=82")}
+    .s6{background-image:url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=82")}
+    .s7{background-image:url("https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=800&q=82")}
+
+
+    /* Mobile-friendly spot information & navigation */
+    .spot-card .spot-body{display:flex;flex-direction:column;height:calc(100% - 170px)}
+    .spot-summary{margin-bottom:12px}
+    .spot-info{
+      margin-top:14px;padding-top:14px;border-top:1px solid #dfd8ca;
+      display:grid;gap:9px;font-size:11px;line-height:1.55;
+    }
+    .spot-info-row{display:grid;grid-template-columns:48px 1fr;gap:8px;align-items:start}
+    .spot-info-label{font-weight:900;color:#756b5e}
+    .spot-info-value{color:#4f5753;overflow-wrap:anywhere}
+    .spot-info-value a{text-decoration:underline;text-underline-offset:3px}
+    .spot-actions{
+      display:grid;grid-template-columns:1.35fr .85fr;gap:8px;
+      margin-top:auto;padding-top:16px;
+    }
+    .spot-action{
+      min-height:44px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;gap:7px;
+      padding:9px 11px;font-size:11px;font-weight:900;
+      border:1px solid #d7d1c5;background:#fff;color:#27332e;
+      transition:.22s var(--ease);
+    }
+    .spot-action:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(31,50,42,.10)}
+    .spot-action.map{
+      background:var(--forest);color:#fff;border-color:var(--forest);
+    }
+    .spot-action.web{grid-column:1/-1;background:#efe9dc}
+    .spot-action.disabled{opacity:.45;pointer-events:none}
+    .nav-note{
+      margin-top:11px;padding:10px 11px;border-radius:10px;
+      background:#fff5df;color:#7a5d2a;font-size:10px;line-height:1.55;
+    }
+    @media (max-width:640px){
+      .spot-card .spot-body{height:auto}
+      .spot-actions{grid-template-columns:1fr 1fr}
+      .spot-action{min-height:48px;font-size:12px}
+      .spot-action.map{grid-column:1/-1;font-size:13px}
+      .spot-action.web{grid-column:1/-1}
+      .spot-info{font-size:12px}
+      .spot-info-row{grid-template-columns:52px 1fr}
+    }
+
+    /* souvenir */
+    .souvenir{background:var(--cream);overflow:hidden}
+    .souvenir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+    .gift{
+      background:#fff;border:1px solid #e9dfd0;border-radius:20px;padding:22px;min-height:190px;
+      display:flex;flex-direction:column;justify-content:space-between;transition:.3s;
+    }
+    .gift:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .gift-icon{font-size:46px}
+    .gift strong{font-size:17px}
+    .gift small{color:var(--muted)}
+
+    /* tips */
+    .tips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+    .tip{
+      border:1px solid var(--line);background:#fff;border-radius:18px;padding:24px;
+      min-height:160px;display:flex;gap:16px;align-items:flex-start;
+    }
+    .tip-icon{font-size:30px}
+    .tip h3{margin:0 0 6px;font-size:16px}
+    .tip p{margin:0;color:var(--muted);font-size:12px}
+
+
+
+    /* map / interactive route — refined */
+    .route{
+      background:
+       linear-gradient(rgba(247,242,232,.955),rgba(247,242,232,.985)),
+       url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=75") center/cover;
+    }
+    .route-wrap{
+      position:relative;
+      height:290vh;
+      margin-top:28px;
+    }
+    .route-stage{
+      position:sticky;
+      top:70px;
+      min-height:calc(100vh - 86px);
+      border:1px solid #dfd3c2;
+      border-radius:30px;
+      padding:30px 22px 24px;
+      background:rgba(255,255,255,.80);
+      backdrop-filter:blur(13px);
+      overflow:hidden;
+      box-shadow:0 18px 50px rgba(45,76,62,.09);
+      isolation:isolate;
+    }
+    .route-stage::before{
+      content:"";
+      position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(circle at 10% 20%,rgba(92,144,115,.08),transparent 22%),
+        radial-gradient(circle at 89% 15%,rgba(185,92,59,.07),transparent 20%),
+        radial-gradient(circle at 52% 78%,rgba(199,157,67,.07),transparent 24%);
+      pointer-events:none;
+    }
+    .route-topline{
+      display:flex;justify-content:space-between;align-items:flex-end;gap:28px;
+      position:relative;z-index:7;padding-inline:8px 5px;
+    }
+    .route-guide{max-width:430px;color:var(--muted);font-size:12.5px;line-height:1.75}
+    .route-guide strong{color:var(--forest)}
+    .route-progress-wrap{
+      display:flex;align-items:center;gap:12px;margin-top:13px;
+    }
+    .route-progress-text{
+      font-size:10px;font-weight:900;letter-spacing:.12em;color:#7b6f61;text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .route-progress{
+      flex:1;min-width:150px;max-width:235px;height:7px;border-radius:999px;background:#e8dfd0;overflow:hidden;
+      box-shadow:inset 0 1px 2px rgba(0,0,0,.04)
+    }
+    .route-progress-bar{
+      width:0;height:100%;
+      background:linear-gradient(90deg,#7ea18f,#355646);
+      border-radius:999px;
+    }
+
+    .route-canvas{
+      position:relative;
+      width:100%;
+      margin-top:10px;
+      aspect-ratio:16 / 7.35;
+      min-height:400px;
+    }
+    .route-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+    .route-base{
+      fill:none;stroke:#d6dfd8;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;opacity:.95;
+    }
+    .route-trace{
+      fill:none;stroke:#557868;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;
+      filter:drop-shadow(0 4px 7px rgba(63,108,87,.18));
+    }
+    .route-stop-dot{
+      fill:#fff;stroke:#567767;stroke-width:3;
+      transition:transform .28s var(--ease),fill .28s var(--ease),stroke .28s var(--ease),filter .28s var(--ease);
+      transform-box:fill-box;transform-origin:center;
+    }
+    .route-stop.active .route-stop-dot{
+      fill:#f8efe3;stroke:#2f5444;transform:scale(1.28);
+      filter:drop-shadow(0 0 8px rgba(84,119,103,.45));
+    }
+    .route-stop.current .route-stop-dot{
+      fill:#fff7e8;stroke:#b95c3b;stroke-width:4;
+      transform:scale(1.42);
+      filter:drop-shadow(0 0 10px rgba(185,92,59,.48));
+      animation:stopPulse 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes stopPulse{
+      to{transform:scale(1.58);filter:drop-shadow(0 0 15px rgba(185,92,59,.62))}
+    }
+    .route-stop-index{
+      fill:#fff;
+      font-size:9px;
+      font-weight:900;
+      text-anchor:middle;
+      dominant-baseline:central;
+      pointer-events:none;
+    }
+    .route-stop.active .route-stop-index,.route-stop.current .route-stop-index{fill:#315245}
+    .route-stop-label{
+      fill:#26342e;
+      font-size:11px;
+      font-weight:900;
+      paint-order:stroke;
+      stroke:#fffdf8;stroke-width:6px;stroke-linejoin:round;
+    }
+    .route-stop-emoji{
+      font-size:22px;
+      dominant-baseline:middle;
+      text-anchor:middle;
+      paint-order:stroke;stroke:#fffdf8;stroke-width:6px;
+    }
+
+    /* DAY markers */
+    .route-days{position:absolute;inset:0;z-index:2;pointer-events:none}
+    .route-day{
+      position:absolute;
+      display:flex;align-items:center;gap:7px;
+      border-radius:999px;padding:7px 11px;
+      background:rgba(255,253,248,.92);
+      border:1px solid #ddd1be;
+      color:#77695a;
+      box-shadow:0 7px 18px rgba(43,54,47,.07);
+      font-size:10px;font-weight:900;letter-spacing:.09em;
+      transition:.32s var(--ease);
+    }
+    .route-day small{font-size:9px;letter-spacing:.02em;font-weight:700;color:#9a8c7d}
+    .route-day::after{
+      content:"";position:absolute;width:1px;height:25px;background:#cdbfae;top:100%;left:50%;
+    }
+    .route-day.day1{left:9%;top:8%}
+    .route-day.day2{left:47%;top:7%}
+    .route-day.day3{right:8%;top:9%}
+    .route-day.active{
+      color:#fff;background:var(--forest);border-color:var(--forest);
+      transform:translateY(-2px);box-shadow:0 10px 25px rgba(23,56,47,.17);
+    }
+    .route-day.active small{color:rgba(255,255,255,.72)}
+    .route-day.active::after{background:#557868}
+
+    /* destination cards */
+    .route-card{
+      position:absolute;
+      min-width:205px;max-width:245px;
+      background:rgba(255,253,248,.96);
+      border:1px solid rgba(216,202,183,.9);
+      border-radius:20px;
+      padding:15px 17px;
+      box-shadow:0 18px 40px rgba(44,52,47,.10);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(20px) scale(.94);
+      filter:blur(7px);
+      transition:
+        opacity .38s var(--ease),
+        transform .5s var(--ease),
+        filter .42s var(--ease),
+        visibility 0s linear .45s;
+      z-index:5;
+      pointer-events:none;
+    }
+    .route-card::before{
+      content:"";
+      position:absolute;inset:-1px;border-radius:inherit;
+      border:1px solid transparent;
+      background:linear-gradient(120deg,rgba(185,92,59,.35),rgba(85,120,104,.28),transparent 70%) border-box;
+      -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;
+      opacity:0;transition:.35s;
+      pointer-events:none;
+    }
+    .route-card.show{
+      opacity:1;visibility:visible;transform:translateY(0) scale(1);
+      filter:blur(0);
+      transition-delay:0s;
+      animation:cardArrival .62s var(--ease) both;
+    }
+    .route-card.show::before{opacity:1}
+    @keyframes cardArrival{
+      0%{opacity:0;transform:translateY(20px) scale(.94);filter:blur(8px)}
+      60%{opacity:1;transform:translateY(-3px) scale(1.015);filter:blur(0)}
+      100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+    }
+    .route-card .mini{
+      display:flex;align-items:center;justify-content:space-between;gap:8px;
+      font-size:10px;font-weight:900;letter-spacing:.10em;color:#8a6f52;text-transform:uppercase;
+    }
+    .route-card .day-chip{
+      padding:3px 6px;border-radius:999px;background:#e9f0ec;color:#365847;
+      font-size:9px;letter-spacing:.06em;
+    }
+    .route-card strong{display:block;font-size:17px;margin-top:5px;line-height:1.45}
+    .route-card p{margin:6px 0 0;font-size:11.5px;color:var(--muted);line-height:1.6}
+    .route-card .cta{margin-top:9px;font-size:10.5px;font-weight:900;color:var(--forest)}
+    .route-card.step-0{left:3%;top:23%}
+    .route-card.step-1{left:14%;top:60%}
+    .route-card.step-2{left:27%;top:17%}
+    .route-card.step-3{left:42%;top:57%}
+    .route-card.step-4{left:55%;top:18%}
+    .route-card.step-5{left:67%;top:57%}
+    .route-card.step-6{left:76%;top:19%}
+    .route-card.step-7{right:2%;top:57%}
+
+    /* More detailed boxy white SUV, LC250-inspired without logos */
+    .route-car{
+      position:absolute;z-index:6;
+      width:106px;height:auto;left:0;top:0;
+      transform:translate(-50%,-50%);
+      filter:drop-shadow(0 12px 13px rgba(0,0,0,.18));
+      will-change:transform;
+      pointer-events:none;
+    }
+    .route-car svg{display:block;width:100%;height:auto;overflow:visible}
+    .car-body{fill:#fbfbf8;stroke:#18231f;stroke-width:2.6;stroke-linejoin:round}
+    .car-glass{fill:#c9d8df;stroke:#18231f;stroke-width:2.1;stroke-linejoin:round}
+    .car-trim{fill:#28332e}
+    .car-cladding{fill:#343d39}
+    .car-metal{fill:#aeb9bd}
+    .car-light-front{fill:#f4d46b;stroke:#18231f;stroke-width:1.4}
+    .car-light-back{fill:#d95743;stroke:#18231f;stroke-width:1.4}
+    .car-detail{fill:none;stroke:#18231f;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .car-wheel{fill:#1e2723;stroke:#111815;stroke-width:1.5}
+    .car-wheel-inner{fill:#8c989c;stroke:#d7dcde;stroke-width:1}
+    .car-tire-detail{fill:none;stroke:#5c6662;stroke-width:1}
+    .car-shadow{fill:rgba(28,39,34,.18)}
+
+    .route-badge{
+      position:absolute;right:18px;top:17px;z-index:8;
+      font-size:10px;font-weight:900;letter-spacing:.08em;
+      padding:8px 11px;border-radius:999px;color:#fff;background:rgba(23,56,47,.93);
+      box-shadow:0 9px 22px rgba(23,56,47,.17);
+    }
+    .route-scroller-note{
+      position:absolute;left:50%;bottom:14px;transform:translateX(-50%);
+      font-size:11px;color:#6f6558;background:rgba(255,255,255,.88);
+      padding:8px 13px;border-radius:999px;border:1px solid #e3d8c7;
+      z-index:7;white-space:nowrap;
+      transition:.28s;
+    }
+    .route-scroller-note.hide{opacity:0;transform:translate(-50%,8px)}
+    .route-finish{
+      position:absolute;right:18px;bottom:14px;z-index:8;
+      padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.94);
+      border:1px solid #dfd3c2;font-size:11px;color:#695f55;
+      opacity:0;transform:translateY(10px);transition:.35s var(--ease);
+    }
+    .route-finish.show{opacity:1;transform:none}
+
+    /* mobile: simplify map and show only one current destination card */
+    .mobile-route-card{display:none}
+
+    @media (max-width:1100px){
+      .route-wrap{height:275vh}
+      .route-card{min-width:185px;max-width:215px}
+      .route-car{width:92px}
+    }
+
+    @media (max-width:900px){
+      .route-wrap{height:245vh}
+      .route-stage{
+        top:64px;min-height:calc(100vh - 74px);
+        padding:20px 12px 14px;border-radius:24px;
+      }
+      .route-topline{display:block;padding-inline:4px}
+      .route-topline h3{font-size:26px!important}
+      .route-guide{display:none}
+      .route-progress-wrap{display:flex;margin-top:9px}
+      .route-progress-text{font-size:9px}
+      .route-progress{max-width:none}
+      .route-canvas{
+        margin-top:6px;
+        aspect-ratio:auto;
+        height:calc(100vh - 250px);
+        min-height:480px;
+      }
+      .route-card{display:none!important}
+      .route-stop-label{display:none}
+      .route-stop-emoji{font-size:20px}
+      .route-day{
+        font-size:9px;padding:6px 8px;
+      }
+      .route-day small{display:none}
+      .route-day::after{height:14px}
+      .route-day.day1{left:4%;top:5%}
+      .route-day.day2{left:40%;top:5%}
+      .route-day.day3{right:3%;top:5%}
+      .route-car{width:78px}
+
+      .mobile-route-card{
+        display:block;position:absolute;
+        left:10px;right:10px;bottom:12px;z-index:10;
+        border-radius:18px;padding:13px 14px;
+        background:rgba(255,253,248,.96);
+        border:1px solid #ddd1be;
+        box-shadow:0 16px 36px rgba(31,50,42,.12);
+        backdrop-filter:blur(12px);
+        transition:.32s var(--ease);
+      }
+      .mobile-route-card.switching{
+        opacity:.45;transform:translateY(6px) scale(.985);filter:blur(3px)
+      }
+      .mobile-route-top{
+        display:flex;align-items:center;justify-content:space-between;gap:8px;
+        font-size:9px;font-weight:900;letter-spacing:.09em;color:#8a6f52;
+      }
+      .mobile-route-day{
+        background:#e9f0ec;color:#365847;border-radius:999px;padding:4px 7px
+      }
+      .mobile-route-card strong{display:block;font-size:16px;line-height:1.4;margin-top:5px}
+      .mobile-route-card p{font-size:11px;line-height:1.55;color:var(--muted);margin:4px 0 0}
+      .mobile-route-card .mobile-meta{font-size:10px;font-weight:800;color:var(--forest);margin-top:6px}
+      .route-badge{right:10px;top:11px;font-size:9px;padding:6px 8px}
+      .route-finish{left:10px;right:10px;bottom:132px;text-align:center}
+      .route-scroller-note{display:none}
+    }
+
+    @media (max-width:640px){
+      .route-wrap{height:235vh}
+      .route-stage{min-height:calc(100svh - 70px)}
+      .route-canvas{height:calc(100svh - 238px);min-height:440px}
+      .route-car{width:72px}
+      .route-stop-emoji{font-size:18px}
+      .route-day{letter-spacing:.04em}
+      .mobile-route-card{bottom:8px}
+    }
+
+    /* closing */
+    .closing{
+      min-height:420px;display:grid;place-items:center;text-align:center;color:#fff;position:relative;
+      background:
+      linear-gradient(180deg,rgba(9,22,31,.45),rgba(9,22,31,.85)),
+      url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=88") center/cover;
+    }
+    .closing h2{font-size:clamp(32px,5vw,62px);font-weight:500;line-height:1.45;margin:0}
+    .closing p{color:rgba(255,255,255,.78)}
+    footer{background:#111d1a;color:#d7dfdb;padding:34px 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .footer-links{display:flex;gap:18px;font-size:12px;opacity:.75}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .stagger > *{opacity:0;transform:translateY(18px)}
+    .stagger.is-visible > *{
+      animation:rise .65s var(--ease) forwards;
+      animation-delay:calc(var(--i,0) * 85ms);
+    }
+    @keyframes rise{to{opacity:1;transform:none}}
+
+    .backtop{
+      position:fixed;right:20px;bottom:20px;z-index:30;width:48px;height:48px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.2);background:rgba(23,56,47,.88);color:white;
+      display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(8px);transition:.3s;cursor:pointer;
+    }
+    .backtop.show{opacity:1;pointer-events:auto;transform:none}
+
+    @media (max-width:980px){
+      .nav{display:none}
+      .menu-btn{display:block}
+      .concept-grid{grid-template-columns:1fr 1fr}
+      .concept-intro{grid-column:1/-1}
+      .days{grid-template-columns:1fr}
+      .day{min-height:auto}
+      .spots-grid{grid-template-columns:repeat(2,1fr)}
+      .tips-grid,.souvenir-grid{grid-template-columns:1fr 1fr}
+      .route-board{overflow-x:auto}
+      .route-points{min-width:920px}
+      .route-line{min-width:790px}
+    }
+    @media (max-width:640px){
+      .container{width:min(100% - 28px,var(--max))}
+      .site-header{height:66px}
+      .header-cta{display:none}
+      .hero-content{padding:120px 0 56px}
+      .hero h1{font-size:44px}
+      .hero-copy{font-size:14px}
+      .chip{font-size:11px}
+      .scroll-cue{display:none}
+      .section{padding:76px 0}
+      .section-title{font-size:34px}
+      .concept-grid,.spots-grid,.tips-grid,.souvenir-grid{grid-template-columns:1fr}
+      .itinerary-head{display:block}
+      .footer-inner{display:block;text-align:center}
+      .footer-links{justify-content:center;flex-wrap:wrap;margin-top:18px}
+      .spot-card .spot-img{height:220px}
+      .hero-actions .btn{width:100%}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+      .reveal,.stagger>*{opacity:1!important;transform:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="ページトップへ">
+        <span class="brand-mark">⛰</span>
+        <span>旅のしおり<small>SAYO SILVER WEEK 2026</small></span>
+      </a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="#concept">旅の魅力</a>
+        <a href="#itinerary">モデルコース</a>
+        <a href="#spots">スポット</a>
+        <a href="#souvenir">グルメ・おみやげ</a>
+        <a href="#route">ルート</a>
+      </nav>
+      <a class="header-cta" href="#itinerary">旅程を見る →</a>
+      <button class="menu-btn" aria-label="メニュー">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="leaf l1">🍁</div><div class="leaf l2">🍂</div><div class="leaf l3">🍁</div>
+      <div class="container hero-content">
+        <div class="hero-kicker">SAYO / HYOGO — SILVER WEEK 2026</div>
+        <h1 class="serif">シルバーウィーク、<br>佐用でのんびり2泊3日</h1>
+        <p class="hero-copy">ポパイテンキャンプ場を拠点に、ご当地グルメ、温泉、宿場町を楽しむ旅のしおり。観光を詰め込みすぎず、夕方にはキャンプ場へ戻る“大人の余白旅”。</p>
+        <div class="hero-chips">
+          <span class="chip">📅 日程｜9/19(土)–9/21(月祝)</span>
+          <span class="chip">⛺ 宿泊｜ポパイテンキャンプ場</span>
+          <span class="chip">📍 エリア｜兵庫県佐用町</span>
+          <span class="chip">🍂 テーマ｜キャンプ・温泉・ご当地グルメ</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#itinerary">旅程を見る <span>→</span></a>
+          <a class="btn btn-ghost" href="#tips">持ち物・旅のヒント</a>
+        </div>
+      </div>
+      <div class="scroll-cue">SCROLL <span></span></div>
+    </section>
+
+    <section class="section concept" id="concept">
+      <div class="container">
+        <div class="concept-grid stagger">
+          <div class="concept-intro">
+            <div class="eyebrow">TRIP CONCEPT</div>
+            <h2 class="section-title serif">この旅で出会える<br>3つの楽しみ</h2>
+            <p>食べて、整えて、夜はのんびり。佐用で過ごす“ちょうどいい”3日間。</p>
+          </div>
+          <article class="concept-card" style="--i:1">
+            <div class="photo"></div>
+            <div class="body"><span class="tag">01 / FOOD</span><h3 class="serif">佐用名物と手打ちそば</h3><p>ホルモン焼きうどんや三日月そば。ここでしか味わえない美味しさを。</p></div>
+          </article>
+          <article class="concept-card" style="--i:2">
+            <div class="photo"></div>
+            <div class="body"><span class="tag">02 / RELAX</span><h3 class="serif">自然と温泉でリセット</h3><p>山の空気とやわらかな湯に包まれて、心も身体もリフレッシュ。</p></div>
+          </article>
+          <article class="concept-card" style="--i:3">
+            <div class="photo"></div>
+            <div class="body"><span class="tag">03 / NIGHT</span><h3 class="serif">焚き火とお酒でゆっくり</h3><p>満天の星の下、火を囲んで飲む。夜は予定を入れないのが正解。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section itinerary" id="itinerary">
+      <div class="container">
+        <div class="itinerary-head reveal">
+          <div>
+            <div class="eyebrow">ITINERARY</div>
+            <h2 class="section-title serif">2泊3日の旅程</h2>
+          </div>
+          <p class="section-lead">初日は佐用名物。2日目は蕎麦・自然・温泉。最終日は宿場町へ。夕方にはキャンプ場へ戻る、余白を残したプランです。</p>
+        </div>
+
+        <div class="days stagger">
+          <article class="day" style="--i:0">
+            <div class="day-head"><div class="day-label">DAY 1｜9/19（土）</div><h3 class="serif">佐用名物ではじまる日</h3></div>
+            <div class="timeline">
+              <div class="item"><div class="time">11:30</div><div class="spot">Horumon Teppanyaki ふじ</div><div class="note">佐用名物・ホルモン焼きうどんで旅のスタート。</div></div>
+              <div class="item"><div class="time">13:00</div><div class="spot">マックスバリュ佐用店</div><div class="note">BBQ食材、飲み物、氷などを買い出し。</div></div>
+              <div class="item"><div class="time">15:00</div><div class="spot">ポパイテンキャンプ場</div><div class="note">チェックイン・設営。高台の空気を楽しむ。</div></div>
+              <div class="item"><div class="time">17:30</div><div class="spot">場内でひと息</div><div class="note">早めにお風呂やシャワーを済ませる。</div></div>
+              <div class="item"><div class="time">18:00 – NIGHT</div><div class="spot">BBQ & 焚き火タイム</div><div class="note">車は置いて、ここからはお酒を楽しむ夜。</div></div>
+            </div>
+            <div class="day-visual d1" aria-label="キャンプファイヤーのイメージ"></div>
+          </article>
+
+          <article class="day" style="--i:1">
+            <div class="day-head"><div class="day-label">DAY 2｜9/20（日）</div><h3 class="serif">そば、自然、温泉の日</h3></div>
+            <div class="timeline">
+              <div class="item"><div class="time">MORNING</div><div class="spot">キャンプ場で朝食</div><div class="note">ゆっくり起きて、コーヒー時間。</div></div>
+              <div class="item"><div class="time">11:00</div><div class="spot">味わいの里三日月</div><div class="note">石臼挽きの手打ち三日月そばを楽しむ。</div></div>
+              <div class="item"><div class="time">12:00</div><div class="spot">直売所</div><div class="note">三日月味噌・地元野菜・お土産をチェック。</div></div>
+              <div class="item"><div class="time">13:15</div><div class="spot">飛龍の滝</div><div class="note">自然の中を少し歩いて気分転換。</div></div>
+              <div class="item"><div class="time">14:30</div><div class="spot">天然温泉 佐用の湯</div><div class="note">やわらかな湯でさっぱり。</div></div>
+              <div class="item"><div class="time">16:00</div><div class="spot">ポパイテンへ戻る</div><div class="note">ここから運転終了。夕方からまた乾杯。</div></div>
+            </div>
+            <div class="day-visual d2" aria-label="滝のイメージ"></div>
+          </article>
+
+          <article class="day" style="--i:2">
+            <div class="day-head"><div class="day-label">DAY 3｜9/21（月祝）</div><h3 class="serif">町並み散策で締めくくる日</h3></div>
+            <div class="timeline">
+              <div class="item"><div class="time">MORNING</div><div class="spot">朝食・撤収</div><div class="note">最後の朝をゆっくり楽しんでから出発。</div></div>
+              <div class="item"><div class="time">10:30</div><div class="spot">平福の町並み</div><div class="note">因幡街道の宿場町をゆったり散策。</div></div>
+              <div class="item"><div class="time">11:30</div><div class="spot">道の駅 宿場町ひらふく</div><div class="note">地元の加工品や野菜を買って旅の締め。</div></div>
+              <div class="item"><div class="time">NOON</div><div class="spot">帰路へ</div><div class="note">寄り道しながら、のんびり大阪方面へ。</div></div>
+            </div>
+            <div class="day-visual d3" aria-label="宿場町のイメージ"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section spots" id="spots">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow" style="color:#e5bf80">SPOTS</div>
+          <h2 class="section-title serif">立ち寄りスポット</h2>
+          <p class="section-lead">食、自然、温泉、町並み。各カードから住所確認・電話・公式サイト・Googleマップのナビをすぐ開けます。</p>
+        </div>
+        <div class="spots-grid stagger">
+          <article class="spot-card" style="--i:0">
+            <div class="spot-img s1"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>ポパイテンキャンプ場</h3>
+                <p>高台のキャンプ場。星空と静かな夜が魅力。</p>
+                <div class="meta">設備｜AC電源・シャワー・お風呂・ランドリー</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">〒679-5201 兵庫県佐用郡佐用町多賀1930</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">電話</span><span class="spot-info-value"><a href="tel:0790781288">0790-78-1288</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://www.nap-camp.com/hyogo/12915" target="_blank" rel="noopener">なっぷ</a></span></div>
+              </div>
+              <div class="nav-note">⚠ ナビ注意：大阪・姫路方面からGoogleマップが細い山道を案内する場合があります。施設案内では「ローソン三日月末広店」を経由地に追加する方法が案内されています。</div>
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%91%E3%82%A4%E3%83%86%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E5%A0%B4%20679-5201%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E5%A4%9A%E8%B3%801930" target="_blank" rel="noopener" aria-label="ポパイテンキャンプ場をGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790781288" aria-label="ポパイテンキャンプ場へ電話する">☎ 電話</a>
+                <a class="spot-action web" href="https://www.nap-camp.com/hyogo/12915" target="_blank" rel="noopener">↗ なっぷを見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:1">
+            <div class="spot-img s2"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>Horumon Teppanyaki ふじ</h3>
+                <p>佐用名物ホルモン焼きうどんで旅のスタート。</p>
+                <div class="meta">昼営業｜11:00–14:00</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">〒679-5301 兵庫県佐用郡佐用町佐用3073-4</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">電話</span><span class="spot-info-value"><a href="tel:0790822915">0790-82-2915</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="http://horumon-udon.com/" target="_blank" rel="noopener">店舗サイト</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=Horumon%20Teppanyaki%20%E3%81%B5%E3%81%98%20679-5301%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E4%BD%90%E7%94%A83073-4" target="_blank" rel="noopener" aria-label="Horumon Teppanyaki ふじをGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790822915" aria-label="Horumon Teppanyaki ふじへ電話する">☎ 電話</a>
+                <a class="spot-action web" href="http://horumon-udon.com/" target="_blank" rel="noopener">↗ 店舗サイトを見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:2">
+            <div class="spot-img s3"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>味わいの里三日月</h3>
+                <p>手打ちそばと直売所を一度に楽しめる。</p>
+                <div class="meta">食堂｜11:00–14:00　直売所｜9:00–17:00</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">〒679-5134 兵庫県佐用郡佐用町乃井野1266</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">電話</span><span class="spot-info-value"><a href="tel:0790792521">0790-79-2521</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://ajiwainosato.jimdofree.com/" target="_blank" rel="noopener">公式サイト</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%82%8F%E3%81%84%E3%81%AE%E9%87%8C%E4%B8%89%E6%97%A5%E6%9C%88%20679-5134%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E4%B9%83%E4%BA%95%E9%87%8E1266" target="_blank" rel="noopener" aria-label="味わいの里三日月をGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790792521" aria-label="味わいの里三日月へ電話する">☎ 電話</a>
+                <a class="spot-action web" href="https://ajiwainosato.jimdofree.com/" target="_blank" rel="noopener">↗ 公式サイトを見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:3">
+            <div class="spot-img s4"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>飛龍の滝</h3>
+                <p>自然の空気を感じる、軽い散策にちょうどいい滝。</p>
+                <div class="meta">見学目安｜30〜45分・駐車場あり・無料</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">兵庫県佐用郡佐用町櫛田（滝谷）</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">観光窓口</span><span class="spot-info-value"><a href="tel:0790820670">0790-82-0670</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://sayo-kanko.jp/spot/spot_1033/" target="_blank" rel="noopener">佐用町観光ナビ</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E9%BE%8D%E3%81%AE%E6%BB%9D%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E6%AB%9B%E7%94%B0%EF%BC%88%E6%BB%9D%E8%B0%B7%EF%BC%89" target="_blank" rel="noopener" aria-label="飛龍の滝をGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790820670" aria-label="飛龍の滝へ電話する">☎ 観光窓口</a>
+                <a class="spot-action web" href="https://sayo-kanko.jp/spot/spot_1033/" target="_blank" rel="noopener">↗ 佐用町観光ナビを見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:4">
+            <div class="spot-img s5"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>天然温泉 佐用の湯</h3>
+                <p>キャンプ2日目に立ち寄りたい温泉。</p>
+                <div class="meta">営業時間｜13:00–21:00（現在内湯のみ営業）</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">〒679-5346 兵庫県佐用郡佐用町口金近459-74</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">電話</span><span class="spot-info-value"><a href="tel:0790823426">0790-82-3426</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://www.ss-resort.co.jp/spa/spa.html" target="_blank" rel="noopener">公式サイト</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%84%B6%E6%B8%A9%E6%B3%89%20%E4%BD%90%E7%94%A8%E3%81%AE%E6%B9%AF%20679-5346%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E5%8F%A3%E9%87%91%E8%BF%91459-74" target="_blank" rel="noopener" aria-label="天然温泉 佐用の湯をGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790823426" aria-label="天然温泉 佐用の湯へ電話する">☎ 電話</a>
+                <a class="spot-action web" href="https://www.ss-resort.co.jp/spa/spa.html" target="_blank" rel="noopener">↗ 公式サイトを見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:5">
+            <div class="spot-img s6"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>平福の町並み</h3>
+                <p>川沿いに古い家並みが残る、情緒ある宿場町。</p>
+                <div class="meta">散策目安｜30〜60分</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">兵庫県佐用郡佐用町平福</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">観光窓口</span><span class="spot-info-value"><a href="tel:0790820670">0790-82-0670</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://www.town.sayo.lg.jp/cms-sypher/www/info/detail.jsp?id=697" target="_blank" rel="noopener">佐用町公式</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E5%B9%B3%E7%A6%8F%E3%81%AE%E7%94%BA%E4%B8%A6%E3%81%BF%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E5%B9%B3%E7%A6%8F" target="_blank" rel="noopener" aria-label="平福の町並みをGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790820670" aria-label="平福の町並みへ電話する">☎ 観光窓口</a>
+                <a class="spot-action web" href="https://www.town.sayo.lg.jp/cms-sypher/www/info/detail.jsp?id=697" target="_blank" rel="noopener">↗ 佐用町公式を見る</a>
+              </div>
+            </div>
+          </article>
+          <article class="spot-card" style="--i:6">
+            <div class="spot-img s7"></div>
+            <div class="spot-body">
+              <div class="spot-summary">
+                <h3>道の駅 宿場町ひらふく</h3>
+                <p>旅の最後に立ち寄りたい、お土産スポット。</p>
+                <div class="meta">直売所｜9:00–18:00・水曜定休</div>
+              </div>
+              <div class="spot-info">
+                <div class="spot-info-row"><span class="spot-info-label">住所</span><span class="spot-info-value">〒679-5331 兵庫県佐用郡佐用町平福988-1</span></div>
+                <div class="spot-info-row"><span class="spot-info-label">電話</span><span class="spot-info-value"><a href="tel:0790832373">0790-83-2373</a></span></div>
+                <div class="spot-info-row"><span class="spot-info-label">Web</span><span class="spot-info-value"><a href="https://m-hirafuku.com/" target="_blank" rel="noopener">公式サイト</a></span></div>
+              </div>
+              
+              <div class="spot-actions">
+                <a class="spot-action map" href="https://www.google.com/maps/search/?api=1&query=%E9%81%93%E3%81%AE%E9%A7%85%20%E5%AE%BF%E5%A0%B4%E7%94%BA%E3%81%B2%E3%82%89%E3%81%B5%E3%81%8F%20679-5331%20%E5%85%B5%E5%BA%AB%E7%9C%8C%E4%BD%90%E7%94%A8%E9%83%A1%E4%BD%90%E7%94%A8%E7%94%BA%E5%B9%B3%E7%A6%8F988-1" target="_blank" rel="noopener" aria-label="道の駅 宿場町ひらふくをGoogleマップで開く">📍 Googleマップでナビ</a>
+                <a class="spot-action" href="tel:0790832373" aria-label="道の駅 宿場町ひらふくへ電話する">☎ 電話</a>
+                <a class="spot-action web" href="https://m-hirafuku.com/" target="_blank" rel="noopener">↗ 公式サイトを見る</a>
+              </div>
+            </div>
+          </article>
+        </div>        </div>
+      </div>
+    </section>
+
+    <section class="section souvenir" id="souvenir">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">SOUVENIR</div>
+          <h2 class="section-title serif">買って帰りたい、佐用みやげ</h2>
+          <p class="section-lead">直売所や道の駅で、夜のキャンプ飯にも使える食材を少しだけ。</p>
+        </div>
+        <div class="souvenir-grid stagger">
+          <div class="gift" style="--i:0"><div class="gift-icon">🫘</div><div><strong>佐用もち大豆の三日月味噌</strong><br><small>地元らしさのある定番。</small></div></div>
+          <div class="gift" style="--i:1"><div class="gift-icon">🥕</div><div><strong>地元野菜</strong><br><small>夜のBBQでそのまま焼いても。</small></div></div>
+          <div class="gift" style="--i:2"><div class="gift-icon">🌻</div><div><strong>ひまわりオイル</strong><br><small>佐用らしいお土産候補。</small></div></div>
+          <div class="gift" style="--i:3"><div class="gift-icon">🥢</div><div><strong>ホルモン焼きうどんのたれ</strong><br><small>家でも旅の味をもう一度。</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">TIPS</div>
+          <h2 class="section-title serif">旅をもっと楽しむために</h2>
+        </div>
+        <div class="tips-grid stagger">
+          <div class="tip" style="--i:0"><div class="tip-icon">🛒</div><div><h3>初日に買い出しを完了</h3><p>キャンプ場に入った後は、できるだけ移動を減らす。</p></div></div>
+          <div class="tip" style="--i:1"><div class="tip-icon">♨️</div><div><h3>2日目は温泉を最後に</h3><p>温泉後、そのままキャンプ場へ戻る導線が快適。</p></div></div>
+          <div class="tip" style="--i:2"><div class="tip-icon">🍻</div><div><h3>夕方以降は運転しない</h3><p>焚き火とお酒の時間を、予定として確保しておく。</p></div></div>
+          <div class="tip" style="--i:3"><div class="tip-icon">🥾</div><div><h3>羽織りと歩きやすい靴</h3><p>朝晩の冷え込み、滝や町歩き、虫対策も忘れずに。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section route" id="route">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">ROUTE</div>
+          <h2 class="section-title serif">スクロールでたどる、モデルルートマップ</h2>
+          <p class="section-lead">スクロールに合わせてルートが描かれ、白いランクル250風SUVが次の目的地へ。DAYごとの旅の流れも一目で分かるように整理しました。</p>
+        </div>
+
+        <div class="route-wrap" id="routeWrap">
+          <div class="route-stage reveal" id="routeStage">
+            <div class="route-badge">SCROLL DRIVE</div>
+
+            <div class="route-topline">
+              <div>
+                <div class="eyebrow">MODEL DRIVE COURSE</div>
+                <h3 class="serif" style="margin:8px 0 0;font-size:clamp(28px,3vw,43px);line-height:1.25">寄り道しながら、<br>佐用のいい景色に出会う。</h3>
+              </div>
+              <div class="route-guide">
+                <strong>スクロールが旅の時間軸。</strong><br>
+                目的地へ到着するたび、スポットカードがふわっと切り替わります。ルートを最後まで見終わると、stickyが解除され通常スクロールへ戻ります。
+                <div class="route-progress-wrap">
+                  <div class="route-progress-text">Route Progress</div>
+                  <div class="route-progress"><div class="route-progress-bar" id="routeProgressBar"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="route-canvas" id="routeCanvas">
+              <div class="route-days" aria-hidden="true">
+                <div class="route-day day1" data-day="1">DAY 1 <small>9/19・食とキャンプ</small></div>
+                <div class="route-day day2" data-day="2">DAY 2 <small>9/20・蕎麦と温泉</small></div>
+                <div class="route-day day3" data-day="3">DAY 3 <small>9/21・宿場町</small></div>
+              </div>
+
+              <svg class="route-svg" id="routeSvg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" aria-label="佐用2泊3日のモデルルート">
+                <defs>
+                  <pattern id="mountainPattern" x="0" y="0" width="180" height="90" patternUnits="userSpaceOnUse">
+                    <path d="M0 78 L28 42 L55 78" fill="none" stroke="#d9d2c5" stroke-width="2"/>
+                    <path d="M54 78 L87 30 L122 78" fill="none" stroke="#d9d2c5" stroke-width="2"/>
+                    <path d="M118 78 L144 48 L170 78" fill="none" stroke="#d9d2c5" stroke-width="2"/>
+                  </pattern>
+                </defs>
+                <rect x="0" y="0" width="1200" height="700" fill="url(#mountainPattern)" opacity=".18"></rect>
+
+                <path id="routePathBase" class="route-base"
+                  d="M110 455 C170 420,205 400,245 420 S345 530,385 500 S500 340,545 365 S650 520,700 485 S795 270,845 300 S930 430,990 405 S1065 375,1110 360"/>
+                <path id="routePathTrace" class="route-trace"
+                  d="M110 455 C170 420,205 400,245 420 S345 530,385 500 S500 340,545 365 S650 520,700 485 S795 270,845 300 S930 430,990 405 S1065 375,1110 360"/>
+
+                <g class="route-stop" data-index="0">
+                  <circle class="route-stop-dot" cx="110" cy="455" r="13"></circle>
+                  <text class="route-stop-index" x="110" y="455">1</text>
+                  <text class="route-stop-emoji" x="110" y="414">🍜</text>
+                  <text class="route-stop-label" x="56" y="500">ふじ</text>
+                </g>
+                <g class="route-stop" data-index="1">
+                  <circle class="route-stop-dot" cx="245" cy="420" r="13"></circle>
+                  <text class="route-stop-index" x="245" y="420">2</text>
+                  <text class="route-stop-emoji" x="245" y="378">🛒</text>
+                  <text class="route-stop-label" x="193" y="360">買い出し</text>
+                </g>
+                <g class="route-stop" data-index="2">
+                  <circle class="route-stop-dot" cx="385" cy="500" r="13"></circle>
+                  <text class="route-stop-index" x="385" y="500">3</text>
+                  <text class="route-stop-emoji" x="385" y="544">⛺</text>
+                  <text class="route-stop-label" x="330" y="577">ポパイテン</text>
+                </g>
+                <g class="route-stop" data-index="3">
+                  <circle class="route-stop-dot" cx="545" cy="365" r="13"></circle>
+                  <text class="route-stop-index" x="545" y="365">4</text>
+                  <text class="route-stop-emoji" x="545" y="323">🥢</text>
+                  <text class="route-stop-label" x="507" y="288">三日月</text>
+                </g>
+                <g class="route-stop" data-index="4">
+                  <circle class="route-stop-dot" cx="700" cy="485" r="13"></circle>
+                  <text class="route-stop-index" x="700" y="485">5</text>
+                  <text class="route-stop-emoji" x="700" y="529">💧</text>
+                  <text class="route-stop-label" x="658" y="562">飛龍の滝</text>
+                </g>
+                <g class="route-stop" data-index="5">
+                  <circle class="route-stop-dot" cx="845" cy="300" r="13"></circle>
+                  <text class="route-stop-index" x="845" y="300">6</text>
+                  <text class="route-stop-emoji" x="845" y="258">♨️</text>
+                  <text class="route-stop-label" x="799" y="225">佐用の湯</text>
+                </g>
+                <g class="route-stop" data-index="6">
+                  <circle class="route-stop-dot" cx="990" cy="405" r="13"></circle>
+                  <text class="route-stop-index" x="990" y="405">7</text>
+                  <text class="route-stop-emoji" x="990" y="449">🏘️</text>
+                  <text class="route-stop-label" x="955" y="482">平福</text>
+                </g>
+                <g class="route-stop" data-index="7">
+                  <circle class="route-stop-dot" cx="1110" cy="360" r="13"></circle>
+                  <text class="route-stop-index" x="1110" y="360">8</text>
+                  <text class="route-stop-emoji" x="1110" y="318">🛍️</text>
+                  <text class="route-stop-label" x="1069" y="288">道の駅</text>
+                </g>
+              </svg>
+
+              <div class="route-car" id="routeCar" aria-hidden="true">
+                <svg viewBox="0 0 260 126" role="img" aria-label="白いボクシーSUVの横姿">
+                  <ellipse class="car-shadow" cx="132" cy="103" rx="104" ry="11"/>
+                  <g>
+                    <!-- roof rails -->
+                    <path class="car-detail" d="M62 23 H161"/>
+                    <path class="car-detail" d="M72 17 V24 M151 17 V24"/>
+                    <!-- boxy body -->
+                    <path class="car-body" d="M19 73 L31 50 L48 42 L59 26 Q63 20 72 20 H151 Q160 20 166 27 L188 49 L225 55 Q237 57 243 68 L248 78 V92 H235 Q231 105 218 105 Q204 105 200 92 H67 Q63 105 49 105 Q35 105 31 92 H13 V81 Q13 75 19 73 Z"/>
+                    <!-- windows -->
+                    <path class="car-glass" d="M70 28 H105 V50 H55 L65 31 Q66 28 70 28 Z"/>
+                    <path class="car-glass" d="M111 28 H148 Q154 28 158 33 L174 50 H111 Z"/>
+                    <!-- pillars / doors -->
+                    <path class="car-detail" d="M106 27 V78 M177 50 L181 81"/>
+                    <path class="car-detail" d="M68 55 V80 M132 55 V80"/>
+                    <path class="car-detail" d="M73 60 H99 M137 60 H159"/>
+                    <!-- mirror -->
+                    <path class="car-trim" d="M176 45 h14 q5 0 5 4 v4 h-19z"/>
+                    <!-- squared wheel arches / lower cladding -->
+                    <path class="car-cladding" d="M15 82 H31 Q34 67 49 67 Q64 67 68 82 H199 Q202 67 218 67 Q234 67 237 82 H249 V93 H235 Q231 106 218 106 Q204 106 200 93 H67 Q63 106 49 106 Q35 106 31 93 H15 Z"/>
+                    <path class="car-body" d="M70 82 H197 V92 H70 Z"/>
+                    <!-- side step -->
+                    <rect class="car-metal" x="77" y="94" width="112" height="5" rx="2.5"/>
+                    <!-- wheels -->
+                    <circle class="car-wheel" cx="49" cy="91" r="21"/>
+                    <circle class="car-wheel-inner" cx="49" cy="91" r="10"/>
+                    <path class="car-tire-detail" d="M49 83 V99 M41 91 H57 M43 85 L55 97 M55 85 L43 97"/>
+                    <circle class="car-wheel" cx="218" cy="91" r="21"/>
+                    <circle class="car-wheel-inner" cx="218" cy="91" r="10"/>
+                    <path class="car-tire-detail" d="M218 83 V99 M210 91 H226 M212 85 L224 97 M224 85 L212 97"/>
+                    <!-- front / rear details -->
+                    <path class="car-detail" d="M226 57 H242 M229 63 H245 M231 69 H247"/>
+                    <rect class="car-light-front" x="231" y="54" width="10" height="13" rx="2"/>
+                    <rect class="car-light-back" x="18" y="59" width="7" height="16" rx="2"/>
+                    <path class="car-detail" d="M28 52 V79 M244 75 V90"/>
+                    <!-- black window belt and subtle body line -->
+                    <path class="car-detail" d="M49 52 H190"/>
+                    <path class="car-detail" d="M70 77 H196"/>
+                    <!-- fuel lid -->
+                    <rect x="42" y="59" width="14" height="10" rx="2" fill="none" stroke="#18231f" stroke-width="1.5"/>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="route-card step-0" id="routeCard0">
+                <div class="mini"><span>STOP 01</span><span class="day-chip">DAY 1</span></div>
+                <strong>Horumon Teppanyaki ふじ</strong>
+                <p>佐用名物ホルモン焼きうどんで、旅のスタート。</p>
+                <div class="cta">1日目ランチ</div>
+              </div>
+              <div class="route-card step-1" id="routeCard1">
+                <div class="mini"><span>STOP 02</span><span class="day-chip">DAY 1</span></div>
+                <strong>マックスバリュ佐用店</strong>
+                <p>BBQ食材や飲み物、氷をまとめて調達。</p>
+                <div class="cta">買い出し</div>
+              </div>
+              <div class="route-card step-2" id="routeCard2">
+                <div class="mini"><span>STOP 03</span><span class="day-chip">DAY 1</span></div>
+                <strong>ポパイテンキャンプ場</strong>
+                <p>高台で設営。夕方からは焚き火とお酒の時間へ。</p>
+                <div class="cta">宿泊・夜のメイン</div>
+              </div>
+              <div class="route-card step-3" id="routeCard3">
+                <div class="mini"><span>STOP 04</span><span class="day-chip">DAY 2</span></div>
+                <strong>味わいの里三日月</strong>
+                <p>2日目ランチは石臼挽きの手打ちそば。</p>
+                <div class="cta">2日目ランチ</div>
+              </div>
+              <div class="route-card step-4" id="routeCard4">
+                <div class="mini"><span>STOP 05</span><span class="day-chip">DAY 2</span></div>
+                <strong>飛龍の滝</strong>
+                <p>食後に少しだけ自然散策。30〜45分の気分転換。</p>
+                <div class="cta">自然散策</div>
+              </div>
+              <div class="route-card step-5" id="routeCard5">
+                <div class="mini"><span>STOP 06</span><span class="day-chip">DAY 2</span></div>
+                <strong>天然温泉 佐用の湯</strong>
+                <p>やわらかい湯に浸かって、2日目の締めへ。</p>
+                <div class="cta">温泉</div>
+              </div>
+              <div class="route-card step-6" id="routeCard6">
+                <div class="mini"><span>STOP 07</span><span class="day-chip">DAY 3</span></div>
+                <strong>平福の町並み</strong>
+                <p>最終日は因幡街道の宿場町をゆっくり散策。</p>
+                <div class="cta">町歩き</div>
+              </div>
+              <div class="route-card step-7" id="routeCard7">
+                <div class="mini"><span>STOP 08</span><span class="day-chip">DAY 3</span></div>
+                <strong>道の駅 宿場町ひらふく</strong>
+                <p>旅の締めに、お土産を買って帰路へ。</p>
+                <div class="cta">お土産</div>
+              </div>
+
+              <div class="mobile-route-card" id="mobileRouteCard">
+                <div class="mobile-route-top">
+                  <span id="mobileStopNo">STOP 01 / 08</span>
+                  <span class="mobile-route-day" id="mobileRouteDay">DAY 1</span>
+                </div>
+                <strong id="mobileRouteTitle">Horumon Teppanyaki ふじ</strong>
+                <p id="mobileRouteDesc">佐用名物ホルモン焼きうどんで、旅のスタート。</p>
+                <div class="mobile-meta" id="mobileRouteMeta">1日目ランチ</div>
+              </div>
+
+              <div class="route-finish" id="routeFinish">ROUTE COMPLETE — ここから通常スクロールへ。</div>
+              <div class="route-scroller-note" id="routeScrollerNote">↓ スクロールに合わせて、白いSUVが目的地へ進みます</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container reveal">
+        <h2 class="serif">よく食べて、よく癒されて、よくくつろぐ。<br>佐用で過ごす、ちょうどいいシルバーウィーク。</h2>
+        <p>また、ここに来よう。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand"><span class="brand-mark">⛰</span><span>旅のしおり<small>Sayo Silver Week 2026</small></span></div>
+      <div class="footer-links"><a href="#concept">旅の魅力</a><a href="#itinerary">旅程</a><a href="#spots">スポット</a><a href="#souvenir">おみやげ</a></div>
+    </div>
+  </footer>
+
+  <button class="backtop" id="backtop" aria-label="ページ上部へ">↑</button>
+
+
+  <script>
+    const header = document.getElementById('header');
+    const backtop = document.getElementById('backtop');
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -5% 0px'});
+    document.querySelectorAll('.reveal,.stagger').forEach(el=>observer.observe(el));
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          navLinks.forEach(a=>a.style.opacity = a.getAttribute('href') === '#' + entry.target.id ? '1' : '.72');
+        }
+      })
+    }, {rootMargin:'-30% 0px -62% 0px'});
+    sections.forEach(s=>spy.observe(s));
+
+    backtop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+    /* route data */
+    const routeData = [
+      {day:1,title:'Horumon Teppanyaki ふじ',desc:'佐用名物ホルモン焼きうどんで、旅のスタート。',meta:'1日目ランチ'},
+      {day:1,title:'マックスバリュ佐用店',desc:'BBQ食材や飲み物、氷をまとめて調達。',meta:'買い出し'},
+      {day:1,title:'ポパイテンキャンプ場',desc:'高台で設営。夕方からは焚き火とお酒の時間へ。',meta:'宿泊・夜のメイン'},
+      {day:2,title:'味わいの里三日月',desc:'2日目ランチは石臼挽きの手打ちそば。',meta:'2日目ランチ'},
+      {day:2,title:'飛龍の滝',desc:'食後に少しだけ自然散策。30〜45分の気分転換。',meta:'自然散策'},
+      {day:2,title:'天然温泉 佐用の湯',desc:'やわらかい湯に浸かって、2日目の締めへ。',meta:'温泉'},
+      {day:3,title:'平福の町並み',desc:'最終日は因幡街道の宿場町をゆっくり散策。',meta:'町歩き'},
+      {day:3,title:'道の駅 宿場町ひらふく',desc:'旅の締めに、お土産を買って帰路へ。',meta:'お土産'}
+    ];
+
+    const routeWrap = document.getElementById('routeWrap');
+    const routeCanvas = document.getElementById('routeCanvas');
+    const routeSvg = document.getElementById('routeSvg');
+    const routePath = document.getElementById('routePathTrace');
+    const routePathBase = document.getElementById('routePathBase');
+    const routeCar = document.getElementById('routeCar');
+    const routeProgressBar = document.getElementById('routeProgressBar');
+    const routeFinish = document.getElementById('routeFinish');
+    const routeScrollerNote = document.getElementById('routeScrollerNote');
+    const routeStops = [...document.querySelectorAll('.route-stop')];
+    const routeCards = [...document.querySelectorAll('.route-card')];
+    const routeDays = [...document.querySelectorAll('.route-day')];
+
+    const mobileCard = document.getElementById('mobileRouteCard');
+    const mobileStopNo = document.getElementById('mobileStopNo');
+    const mobileRouteDay = document.getElementById('mobileRouteDay');
+    const mobileRouteTitle = document.getElementById('mobileRouteTitle');
+    const mobileRouteDesc = document.getElementById('mobileRouteDesc');
+    const mobileRouteMeta = document.getElementById('mobileRouteMeta');
+
+    let pathLength = 0;
+    let currentIndex = -1;
+    let mobileMode = false;
+
+    const desktopPoints = [
+      [110,455],[245,420],[385,500],[545,365],
+      [700,485],[845,300],[990,405],[1110,360]
+    ];
+    const mobilePoints = [
+      [440,95],[440,185],[440,275],[440,365],
+      [440,455],[440,545],[440,635],[440,725]
+    ];
+
+    function setStopPosition(stop,i,x,y,mobile){
+      const circle = stop.querySelector('.route-stop-dot');
+      const idx = stop.querySelector('.route-stop-index');
+      const emoji = stop.querySelector('.route-stop-emoji');
+      const label = stop.querySelector('.route-stop-label');
+
+      circle.setAttribute('cx',x); circle.setAttribute('cy',y);
+      idx.setAttribute('x',x); idx.setAttribute('y',y);
+
+      if(mobile){
+        emoji.setAttribute('x', x - 48);
+        emoji.setAttribute('y', y);
+        label.setAttribute('x', x + 28);
+        label.setAttribute('y', y + 4);
+      }
+    }
+
+    function setResponsiveRoute(){
+      mobileMode = window.innerWidth <= 900;
+
+      const desktopPath = 'M110 455 C170 420,205 400,245 420 S345 530,385 500 S500 340,545 365 S650 520,700 485 S795 270,845 300 S930 430,990 405 S1065 375,1110 360';
+      const mobilePath  = 'M440 95 C415 130,415 155,440 185 S465 245,440 275 S415 335,440 365 S465 425,440 455 S415 515,440 545 S465 605,440 635 S415 695,440 725';
+
+      if(mobileMode){
+        routeSvg.setAttribute('viewBox','0 0 880 820');
+        routePath.setAttribute('d',mobilePath);
+        routePathBase.setAttribute('d',mobilePath);
+        routeStops.forEach((stop,i)=>setStopPosition(stop,i,...mobilePoints[i],true));
+      }else{
+        routeSvg.setAttribute('viewBox','0 0 1200 700');
+        routePath.setAttribute('d',desktopPath);
+        routePathBase.setAttribute('d',desktopPath);
+        desktopPoints.forEach((point,i)=>{
+          const [x,y]=point;
+          const stop=routeStops[i];
+          const circle=stop.querySelector('.route-stop-dot');
+          const idx=stop.querySelector('.route-stop-index');
+          circle.setAttribute('cx',x);circle.setAttribute('cy',y);
+          idx.setAttribute('x',x);idx.setAttribute('y',y);
+        });
+      }
+
+      requestAnimationFrame(()=>{
+        pathLength = routePath.getTotalLength();
+        routePath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+        routePath.style.strokeDashoffset = `${pathLength}`;
+        updateRouteAnimation();
+      });
+    }
+
+    function getActiveDay(index){
+      return routeData[Math.max(0,index)]?.day || 1;
+    }
+
+    function switchMobileCard(index){
+      if(!mobileCard || index < 0 || !routeData[index]) return;
+      const item = routeData[index];
+      mobileCard.classList.add('switching');
+      setTimeout(()=>{
+        mobileStopNo.textContent = `STOP ${String(index+1).padStart(2,'0')} / 08`;
+        mobileRouteDay.textContent = `DAY ${item.day}`;
+        mobileRouteTitle.textContent = item.title;
+        mobileRouteDesc.textContent = item.desc;
+        mobileRouteMeta.textContent = item.meta;
+        mobileCard.classList.remove('switching');
+      },120);
+    }
+
+    function setActiveIndex(index){
+      if(index === currentIndex) return;
+      currentIndex = index;
+
+      routeStops.forEach((el,i)=>{
+        el.classList.toggle('active',i <= index);
+        el.classList.toggle('current',i === index);
+      });
+      routeCards.forEach((el,i)=>el.classList.toggle('show',!mobileMode && i === index));
+
+      const day = getActiveDay(index);
+      routeDays.forEach(el=>el.classList.toggle('active',Number(el.dataset.day) === day));
+
+      if(mobileMode) switchMobileCard(index);
+    }
+
+    function updateRouteAnimation(){
+      if(!routeWrap || !routePath || !routeCanvas || !pathLength) return;
+
+      const rect = routeWrap.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const totalScrollable = Math.max(1,rect.height - viewport);
+      const current = Math.min(Math.max(-rect.top,0),totalScrollable);
+      const progress = Math.min(Math.max(current / totalScrollable,0),1);
+
+      routePath.style.strokeDashoffset = `${pathLength * (1-progress)}`;
+      routeProgressBar.style.width = `${progress*100}%`;
+
+      const len = pathLength * progress;
+      const p = routePath.getPointAtLength(len);
+      const p2 = routePath.getPointAtLength(Math.min(pathLength,len+4));
+      let angle = Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
+
+      /* side-view car feels more natural with limited body pitch */
+      if(!mobileMode) angle = Math.max(-13,Math.min(13,angle));
+      else angle = 0;
+
+      const vb = routeSvg.viewBox.baseVal;
+      const cr = routeCanvas.getBoundingClientRect();
+      const px = (p.x/vb.width)*cr.width;
+      const py = (p.y/vb.height)*cr.height;
+      const bob = Math.sin(progress*42)*1.2;
+      const carHalf = mobileMode ? 36 : 53;
+
+      routeCar.style.transform = `translate(${px-carHalf}px, ${py-(mobileMode?27:35)+bob}px) rotate(${angle}deg)`;
+
+      /* distribute arrivals evenly across scroll progress */
+      const index = Math.min(routeData.length-1,Math.floor(progress*routeData.length));
+      setActiveIndex(index);
+
+      routeFinish.classList.toggle('show',progress > .965);
+      routeScrollerNote?.classList.toggle('hide',progress > .12);
+    }
+
+    function onScroll(){
+      const y = window.scrollY;
+      header.classList.toggle('scrolled',y>20);
+      backtop.classList.toggle('show',y>650);
+
+      const hero = document.querySelector('.hero');
+      if(hero && y < innerHeight){
+        hero.style.backgroundPosition = `center ${Math.min(50,y*.03)}px`;
+      }
+      updateRouteAnimation();
+    }
+
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',setResponsiveRoute);
+    window.addEventListener('load',setResponsiveRoute);
+    setResponsiveRoute();
+    onScroll();
+  </script>
+
+</body>
+</html>
