@@ -1,7 +1,7 @@
 
 /* Password gate */
 const PASSWORD_HASH = "a27cdb983ace1908f422ec4a358ac3a539e958786b1c82c838bf93ccde2e8bb3";
-const PASSWORD_SESSION_KEY = "sayo_trip_authenticated";
+const PASSWORD_STORAGE_KEY = "sayo_trip_authenticated";
 
 async function sha256(text) {
   const data = new TextEncoder().encode(text);
@@ -28,7 +28,7 @@ function unlockPage(animate=true) {
   }
 }
 
-if(sessionStorage.getItem(PASSWORD_SESSION_KEY) === "1") {
+if(localStorage.getItem(PASSWORD_STORAGE_KEY) === "1") {
   unlockPage(false);
 } else {
   requestAnimationFrame(() => passwordInput?.focus());
@@ -38,7 +38,7 @@ passwordForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const hash = await sha256(passwordInput?.value || "");
   if(hash === PASSWORD_HASH) {
-    sessionStorage.setItem(PASSWORD_SESSION_KEY,"1");
+    localStorage.setItem(PASSWORD_STORAGE_KEY,"1");
     passwordMessage.textContent = "";
     unlockPage(true);
   } else {
@@ -50,6 +50,15 @@ passwordForm?.addEventListener("submit", async (e) => {
     passwordInput?.focus();
   }
 });
+
+function forgetSavedLogin() {
+  localStorage.removeItem(PASSWORD_STORAGE_KEY);
+}
+
+/* To force password entry again on this browser, run:
+   forgetSavedLogin()
+   in the browser console, then reload the page.
+*/
 
 passwordToggle?.addEventListener("click", () => {
   if(!passwordInput) return;
