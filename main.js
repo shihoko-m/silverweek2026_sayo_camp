@@ -127,14 +127,14 @@ const header = document.getElementById('header');
 
     /* route data */
     const routeData = [
-      {day:1,title:'Horumon Teppanyaki ふじ',desc:'佐用名物ホルモン焼きうどんで、旅のスタート。',meta:'1日目ランチ'},
-      {day:1,title:'マックスバリュ佐用店',desc:'BBQ食材や飲み物、氷をまとめて調達。',meta:'買い出し'},
-      {day:1,title:'ポパイテンキャンプ場',desc:'高台で設営。夕方からは焚き火とお酒の時間へ。',meta:'宿泊・夜のメイン'},
-      {day:2,title:'蕎麦屋 鬨（トキ）',desc:'山あいの古民家で、ゆっくり蕎麦ランチ。',meta:'2日目ランチ'},
-      {day:2,title:'飛龍の滝',desc:'食後に少しだけ自然散策。30〜45分の気分転換。',meta:'自然散策'},
-      {day:2,title:'天然温泉 佐用の湯',desc:'やわらかい湯に浸かって、2日目の締めへ。',meta:'温泉'},
-      {day:3,title:'平福の町並み',desc:'最終日は因幡街道の宿場町をゆっくり散策。',meta:'町歩き'},
-      {day:3,title:'道の駅 宿場町ひらふく',desc:'旅の締めに、お土産を買って帰路へ。',meta:'お土産'}
+      {day:1,stop:'STOP 01',title:'Horumon Teppanyaki ふじ',desc:'佐用名物ホルモン焼きうどんで、旅のスタート。',meta:'1日目ランチ',distance:'0.5 KM',turn:'450M'},
+      {day:1,stop:'STOP 02',title:'マックスバリュ佐用店',desc:'BBQ食材や飲み物、氷をまとめて調達。',meta:'買い出し',distance:'1.1 KM',turn:'350M'},
+      {day:1,stop:'STOP 03',title:'ポパイテンキャンプ場',desc:'高台で設営。夕方からは焚き火とお酒の時間へ。',meta:'宿泊・夜のメイン',distance:'3.2 KM',turn:'200M'},
+      {day:2,stop:'STOP 04',title:'蕎麦屋 鬨（トキ）',desc:'山あいの古民家で、ゆっくり蕎麦ランチ。',meta:'2日目ランチ',distance:'6.8 KM',turn:'150M'},
+      {day:2,stop:'STOP 05',title:'飛龍の滝',desc:'食後に少しだけ自然散策。30〜45分の気分転換。',meta:'自然散策',distance:'8.3 KM',turn:'120M'},
+      {day:2,stop:'STOP 06',title:'天然温泉 佐用の湯',desc:'やわらかい湯に浸かって、2日目の締めへ。',meta:'温泉',distance:'11.0 KM',turn:'300M'},
+      {day:3,stop:'STOP 07',title:'平福の町並み',desc:'最終日は因幡街道の宿場町をゆっくり散策。',meta:'町歩き',distance:'12.2 KM',turn:'260M'},
+      {day:3,stop:'STOP 08',title:'道の駅 宿場町ひらふく',desc:'旅の締めに、お土産を買って帰路へ。',meta:'お土産',distance:'13.0 KM',turn:'ARRIVE'}
     ];
 
     const routeWrap = document.getElementById('routeWrap');
@@ -147,10 +147,12 @@ const header = document.getElementById('header');
     const routeFinish = document.getElementById('routeFinish');
     const routeScrollerNote = document.getElementById('routeScrollerNote');
     const routeStops = [...document.querySelectorAll('.route-stop')];
-    const routeCards = [...document.querySelectorAll('.route-card')];
+    const routeBubbles = [...document.querySelectorAll('.route-bubble')];
     const routeDays = [...document.querySelectorAll('.route-day')];
+    const routeHudDistance = document.getElementById('routeHudDistance');
+    const routeHudTurn = document.getElementById('routeHudTurn');
 
-    const mobileCard = document.getElementById('mobileRouteCard');
+    const mobileBubble = document.getElementById('mobileRouteBubble');
     const mobileStopNo = document.getElementById('mobileStopNo');
     const mobileRouteDay = document.getElementById('mobileRouteDay');
     const mobileRouteTitle = document.getElementById('mobileRouteTitle');
@@ -162,55 +164,20 @@ const header = document.getElementById('header');
     let mobileMode = false;
 
     const desktopPoints = [
-      [110,455],[245,420],[385,500],[545,365],
-      [700,485],[845,300],[990,405],[1110,360]
+      [118,510],[314,510],[420,404],[420,232],
+      [690,232],[690,512],[848,512],[1030,176]
     ];
     const mobilePoints = [
-      [440,95],[440,185],[440,275],[440,365],
-      [440,455],[440,545],[440,635],[440,725]
+      [118,510],[314,510],[420,404],[420,232],
+      [690,232],[690,512],[848,512],[1030,176]
     ];
-
-    function setStopPosition(stop,i,x,y,mobile){
-      const circle = stop.querySelector('.route-stop-dot');
-      const idx = stop.querySelector('.route-stop-index');
-      const emoji = stop.querySelector('.route-stop-emoji');
-      const label = stop.querySelector('.route-stop-label');
-
-      circle.setAttribute('cx',x); circle.setAttribute('cy',y);
-      idx.setAttribute('x',x); idx.setAttribute('y',y);
-
-      if(mobile){
-        emoji.setAttribute('x', x - 48);
-        emoji.setAttribute('y', y);
-        label.setAttribute('x', x + 28);
-        label.setAttribute('y', y + 4);
-      }
-    }
 
     function setResponsiveRoute(){
       mobileMode = window.innerWidth <= 900;
-
-      const desktopPath = 'M110 455 C170 420,205 400,245 420 S345 530,385 500 S500 340,545 365 S650 520,700 485 S795 270,845 300 S930 430,990 405 S1065 375,1110 360';
-      const mobilePath  = 'M440 95 C415 130,415 155,440 185 S465 245,440 275 S415 335,440 365 S465 425,440 455 S415 515,440 545 S465 605,440 635 S415 695,440 725';
-
-      if(mobileMode){
-        routeSvg.setAttribute('viewBox','0 0 880 820');
-        routePath.setAttribute('d',mobilePath);
-        routePathBase.setAttribute('d',mobilePath);
-        routeStops.forEach((stop,i)=>setStopPosition(stop,i,...mobilePoints[i],true));
-      }else{
-        routeSvg.setAttribute('viewBox','0 0 1200 700');
-        routePath.setAttribute('d',desktopPath);
-        routePathBase.setAttribute('d',desktopPath);
-        desktopPoints.forEach((point,i)=>{
-          const [x,y]=point;
-          const stop=routeStops[i];
-          const circle=stop.querySelector('.route-stop-dot');
-          const idx=stop.querySelector('.route-stop-index');
-          circle.setAttribute('cx',x);circle.setAttribute('cy',y);
-          idx.setAttribute('x',x);idx.setAttribute('y',y);
-        });
-      }
+      routeSvg.setAttribute('viewBox','0 0 1200 640');
+      const pathD = 'M118 510 L314 510 L420 404 L420 232 L690 232 L690 512 L848 512 L960 420 L960 260 L1030 260 L1030 176';
+      routePath.setAttribute('d', pathD);
+      routePathBase.setAttribute('d', pathD);
 
       requestAnimationFrame(()=>{
         pathLength = routePath.getTotalLength();
@@ -224,17 +191,17 @@ const header = document.getElementById('header');
       return routeData[Math.max(0,index)]?.day || 1;
     }
 
-    function switchMobileCard(index){
-      if(!mobileCard || index < 0 || !routeData[index]) return;
+    function switchMobileBubble(index){
+      if(!mobileBubble || index < 0 || !routeData[index]) return;
       const item = routeData[index];
-      mobileCard.classList.add('switching');
+      mobileBubble.classList.add('switching');
       setTimeout(()=>{
-        mobileStopNo.textContent = `STOP ${String(index+1).padStart(2,'0')} / 08`;
+        mobileStopNo.textContent = item.stop;
         mobileRouteDay.textContent = `DAY ${item.day}`;
         mobileRouteTitle.textContent = item.title;
         mobileRouteDesc.textContent = item.desc;
         mobileRouteMeta.textContent = item.meta;
-        mobileCard.classList.remove('switching');
+        mobileBubble.classList.remove('switching');
       },120);
     }
 
@@ -243,15 +210,21 @@ const header = document.getElementById('header');
       currentIndex = index;
 
       routeStops.forEach((el,i)=>{
-        el.classList.toggle('active',i <= index);
-        el.classList.toggle('current',i === index);
+        el.classList.toggle('active', i <= index);
+        el.classList.toggle('current', i === index);
       });
-      routeCards.forEach((el,i)=>el.classList.toggle('show',!mobileMode && i === index));
+      routeBubbles.forEach((el,i)=>el.classList.toggle('show', !mobileMode && i === index));
+
+      const item = routeData[Math.max(0,index)];
+      if(item){
+        routeHudDistance.textContent = item.distance;
+        routeHudTurn.textContent = item.turn;
+      }
 
       const day = getActiveDay(index);
-      routeDays.forEach(el=>el.classList.toggle('active',Number(el.dataset.day) === day));
+      routeDays.forEach(el=>el.classList.toggle('active', Number(el.dataset.day) === day));
 
-      if(mobileMode) switchMobileCard(index);
+      if(mobileMode) switchMobileBubble(index);
     }
 
     function updateRouteAnimation(){
@@ -259,36 +232,33 @@ const header = document.getElementById('header');
 
       const rect = routeWrap.getBoundingClientRect();
       const viewport = window.innerHeight;
-      const totalScrollable = Math.max(1,rect.height - viewport);
-      const current = Math.min(Math.max(-rect.top,0),totalScrollable);
-      const progress = Math.min(Math.max(current / totalScrollable,0),1);
+      const totalScrollable = Math.max(1, rect.height - viewport);
+      const current = Math.min(Math.max(-rect.top, 0), totalScrollable);
+      const progress = Math.min(Math.max(current / totalScrollable, 0), 1);
 
-      routePath.style.strokeDashoffset = `${pathLength * (1-progress)}`;
-      routeProgressBar.style.width = `${progress*100}%`;
+      routePath.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+      routeProgressBar.style.width = `${progress * 100}%`;
 
       const len = pathLength * progress;
       const p = routePath.getPointAtLength(len);
-      const p2 = routePath.getPointAtLength(Math.min(pathLength,len+4));
-      // Top-down navigation icon: point the SUV in the actual travel direction.
-      // The SVG faces right by default, so path tangent angle can be used as-is.
-      const angle = Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
+      const p2 = routePath.getPointAtLength(Math.min(pathLength, len + 5));
+      const angle = Math.atan2(p2.y - p.y, p2.x - p.x) * 180 / Math.PI + 90; // car SVG points upward
 
       const vb = routeSvg.viewBox.baseVal;
       const cr = routeCanvas.getBoundingClientRect();
-      const px = (p.x/vb.width)*cr.width;
-      const py = (p.y/vb.height)*cr.height;
+      const px = (p.x / vb.width) * cr.width;
+      const py = (p.y / vb.height) * cr.height;
 
       routeCar.style.transform = `translate(${px}px, ${py}px) translate(-50%,-50%) rotate(${angle}deg)`;
 
-      /* distribute arrivals evenly across scroll progress */
-      const index = Math.min(routeData.length-1,Math.floor(progress*routeData.length));
+      const index = Math.min(routeData.length - 1, Math.floor(progress * routeData.length));
       setActiveIndex(index);
 
-      routeFinish.classList.toggle('show',progress > .965);
-      routeScrollerNote?.classList.toggle('hide',progress > .12);
+      routeFinish.classList.toggle('show', progress > .965);
+      routeScrollerNote?.classList.toggle('hide', progress > .12);
     }
 
-    function onScroll(){
+function onScroll(){
       const y = window.scrollY;
       header.classList.toggle('scrolled',y>20);
       backtop.classList.toggle('show',y>650);
