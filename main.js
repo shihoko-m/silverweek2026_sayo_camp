@@ -130,7 +130,7 @@ const header = document.getElementById('header');
       {day:1,title:'Horumon Teppanyaki ふじ',desc:'佐用名物ホルモン焼きうどんで、旅のスタート。',meta:'1日目ランチ'},
       {day:1,title:'マックスバリュ佐用店',desc:'BBQ食材や飲み物、氷をまとめて調達。',meta:'買い出し'},
       {day:1,title:'ポパイテンキャンプ場',desc:'高台で設営。夕方からは焚き火とお酒の時間へ。',meta:'宿泊・夜のメイン'},
-      {day:2,title:'味わいの里三日月',desc:'2日目ランチは石臼挽きの手打ちそば。',meta:'2日目ランチ'},
+      {day:2,title:'蕎麦屋 鬨（トキ）',desc:'山あいの古民家で、ゆっくり蕎麦ランチ。',meta:'2日目ランチ'},
       {day:2,title:'飛龍の滝',desc:'食後に少しだけ自然散策。30〜45分の気分転換。',meta:'自然散策'},
       {day:2,title:'天然温泉 佐用の湯',desc:'やわらかい湯に浸かって、2日目の締めへ。',meta:'温泉'},
       {day:3,title:'平福の町並み',desc:'最終日は因幡街道の宿場町をゆっくり散策。',meta:'町歩き'},
@@ -269,20 +269,16 @@ const header = document.getElementById('header');
       const len = pathLength * progress;
       const p = routePath.getPointAtLength(len);
       const p2 = routePath.getPointAtLength(Math.min(pathLength,len+4));
-      let angle = Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
-
-      /* side-view car feels more natural with limited body pitch */
-      if(!mobileMode) angle = Math.max(-13,Math.min(13,angle));
-      else angle = 0;
+      // Top-down navigation icon: point the SUV in the actual travel direction.
+      // The SVG faces right by default, so path tangent angle can be used as-is.
+      const angle = Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
 
       const vb = routeSvg.viewBox.baseVal;
       const cr = routeCanvas.getBoundingClientRect();
       const px = (p.x/vb.width)*cr.width;
       const py = (p.y/vb.height)*cr.height;
-      const bob = Math.sin(progress*42)*1.2;
-      const carHalf = mobileMode ? 36 : 53;
 
-      routeCar.style.transform = `translate(${px-carHalf}px, ${py-(mobileMode?27:35)+bob}px) rotate(${angle}deg)`;
+      routeCar.style.transform = `translate(${px}px, ${py}px) translate(-50%,-50%) rotate(${angle}deg)`;
 
       /* distribute arrivals evenly across scroll progress */
       const index = Math.min(routeData.length-1,Math.floor(progress*routeData.length));

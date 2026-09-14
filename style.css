@@ -309,17 +309,27 @@
       .spot-info-row{grid-template-columns:52px 1fr}
     }
 
-    /* souvenir */
-    .souvenir{background:var(--cream);overflow:hidden}
-    .souvenir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+    /* souvenir — compact */
+    .souvenir{background:var(--cream);overflow:hidden;padding-top:72px;padding-bottom:72px}
+    .souvenir .section-title{font-size:clamp(28px,3vw,42px)}
+    .souvenir .section-lead{margin-top:10px}
+    .souvenir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
     .gift{
-      background:#fff;border:1px solid #e9dfd0;border-radius:20px;padding:22px;min-height:190px;
-      display:flex;flex-direction:column;justify-content:space-between;transition:.3s;
+      background:rgba(255,255,255,.82);
+      border:1px solid #e9dfd0;
+      border-radius:16px;
+      padding:14px 15px;
+      min-height:94px;
+      display:grid;
+      grid-template-columns:34px 1fr;
+      gap:12px;
+      align-items:center;
+      transition:.28s var(--ease);
     }
-    .gift:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-    .gift-icon{font-size:46px}
-    .gift strong{font-size:17px}
-    .gift small{color:var(--muted)}
+    .gift:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(48,38,22,.07)}
+    .gift-icon{font-size:28px;line-height:1}
+    .gift strong{font-size:14px;line-height:1.45}
+    .gift small{color:var(--muted);font-size:10.5px;line-height:1.45}
 
     /* tips */
     .tips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
@@ -535,28 +545,49 @@
     .route-card.step-6{left:76%;top:19%}
     .route-card.step-7{right:2%;top:57%}
 
-    /* More detailed boxy white SUV, LC250-inspired without logos */
+    /* top-down navigation SUV */
     .route-car{
-      position:absolute;z-index:6;
-      width:106px;height:auto;left:0;top:0;
+      position:absolute;
+      z-index:6;
+      width:82px;
+      height:auto;
+      left:0;
+      top:0;
       transform:translate(-50%,-50%);
-      filter:drop-shadow(0 12px 13px rgba(0,0,0,.18));
+      transform-origin:center;
       will-change:transform;
       pointer-events:none;
+      filter:drop-shadow(0 8px 9px rgba(25,38,32,.19));
     }
-    .route-car svg{display:block;width:100%;height:auto;overflow:visible}
-    .car-body{fill:#fbfbf8;stroke:#18231f;stroke-width:2.6;stroke-linejoin:round}
-    .car-glass{fill:#c9d8df;stroke:#18231f;stroke-width:2.1;stroke-linejoin:round}
-    .car-trim{fill:#28332e}
-    .car-cladding{fill:#343d39}
-    .car-metal{fill:#aeb9bd}
-    .car-light-front{fill:#f4d46b;stroke:#18231f;stroke-width:1.4}
-    .car-light-back{fill:#d95743;stroke:#18231f;stroke-width:1.4}
-    .car-detail{fill:none;stroke:#18231f;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .car-wheel{fill:#1e2723;stroke:#111815;stroke-width:1.5}
-    .car-wheel-inner{fill:#8c989c;stroke:#d7dcde;stroke-width:1}
-    .car-tire-detail{fill:none;stroke:#5c6662;stroke-width:1}
-    .car-shadow{fill:rgba(28,39,34,.18)}
+    .route-car svg{display:block;width:100%;height:auto;overflow:visible;position:relative;z-index:2}
+    .route-car__halo{
+      position:absolute;
+      z-index:1;
+      width:62px;height:62px;
+      left:50%;top:50%;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      background:rgba(69,111,91,.12);
+      border:1px solid rgba(69,111,91,.24);
+      box-shadow:0 0 0 7px rgba(69,111,91,.05);
+      animation:navCarHalo 1.8s ease-in-out infinite;
+    }
+    @keyframes navCarHalo{
+      50%{transform:translate(-50%,-50%) scale(1.14);opacity:.55}
+    }
+    .nav-car-shadow{fill:rgba(24,36,31,.15)}
+    .nav-car-body{fill:#fbfbf7;stroke:#1b2923;stroke-width:2;stroke-linejoin:round}
+    .nav-car-panel{fill:#f1f2ee;stroke:#83918a;stroke-width:.8}
+    .nav-car-roof{fill:#fcfcf9;stroke:#1b2923;stroke-width:1.6}
+    .nav-car-glass{fill:#a9c0ca;stroke:#1b2923;stroke-width:1}
+    .nav-car-glass.rear{fill:#bacbd2}
+    .nav-car-sunroof{fill:#637a83;opacity:.78}
+    .nav-car-rail{fill:none;stroke:#323f39;stroke-width:1.7;stroke-linecap:round}
+    .nav-car-trim,.nav-car-wheel{fill:#29342f}
+    .nav-car-headlight{fill:#f5d569;stroke:#1b2923;stroke-width:.7}
+    .nav-car-tail{fill:#d65b47;stroke:#1b2923;stroke-width:.7}
+    .nav-car-detail{fill:none;stroke:#8a9690;stroke-width:.8;opacity:.8}
+
 
     .route-badge{
       position:absolute;right:18px;top:17px;z-index:8;
@@ -586,7 +617,7 @@
     @media (max-width:1100px){
       .route-wrap{height:275vh}
       .route-card{min-width:185px;max-width:215px}
-      .route-car{width:92px}
+      .route-car{width:72px}
     }
 
     @media (max-width:900px){
@@ -618,7 +649,7 @@
       .route-day.day1{left:4%;top:5%}
       .route-day.day2{left:40%;top:5%}
       .route-day.day3{right:3%;top:5%}
-      .route-car{width:78px}
+      .route-car{width:64px}
 
       .mobile-route-card{
         display:block;position:absolute;
@@ -652,7 +683,7 @@
       .route-wrap{height:235vh}
       .route-stage{min-height:calc(100svh - 70px)}
       .route-canvas{height:calc(100svh - 238px);min-height:440px}
-      .route-car{width:72px}
+      .route-car{width:58px}
       .route-stop-emoji{font-size:18px}
       .route-day{letter-spacing:.04em}
       .mobile-route-card{bottom:8px}
@@ -665,7 +696,7 @@
       linear-gradient(180deg,rgba(9,22,31,.45),rgba(9,22,31,.85)),
       url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=88") center/cover;
     }
-    .closing h2{font-size:clamp(32px,5vw,62px);font-weight:500;line-height:1.45;margin:0}
+    .closing h2{font-size:clamp(24px,3.25vw,42px);font-weight:500;line-height:1.55;margin:0 auto;max-width:980px;letter-spacing:.025em}
     .closing p{color:rgba(255,255,255,.78)}
     footer{background:#111d1a;color:#d7dfdb;padding:34px 0}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -784,4 +815,16 @@
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
       .reveal,.stagger>*{opacity:1!important;transform:none!important}
+    }
+
+    .closing-copy span{display:inline-block}
+    @media (max-width:640px){
+      .closing{min-height:360px}
+      .closing h2{font-size:clamp(22px,7vw,30px);line-height:1.6;padding-inline:4px}
+      .souvenir{padding-top:56px;padding-bottom:56px}
+      .souvenir-grid{grid-template-columns:1fr 1fr;gap:9px}
+      .gift{padding:12px;min-height:88px;grid-template-columns:28px 1fr;gap:9px}
+      .gift-icon{font-size:23px}
+      .gift strong{font-size:12.5px}
+      .gift small{font-size:9.5px}
     }
