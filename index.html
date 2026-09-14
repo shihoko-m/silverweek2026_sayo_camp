@@ -470,37 +470,79 @@
 
               <div class="route-car" id="routeCar" aria-hidden="true">
                 <span class="route-car__pulse"></span>
-                <svg viewBox="0 0 72 108" role="img" aria-label="真上から見た白い車">
+                <svg viewBox="0 0 84 134" role="img" aria-label="真上から見た白い車">
                   <g>
-                    <path class="navcar-shadow" d="M36 98c16 0 29-4 29-9s-13-9-29-9S7 84 7 89s13 9 29 9z"></path>
-                    <path class="navcar-body" d="M20 10
-                      C24 6 30 4 36 4
-                      C42 4 48 6 52 10
-                      L60 21
-                      C63 25 64 30 64 36
-                      V72
-                      C64 80 60 87 53 92
-                      C48 95 42 97 36 97
-                      C30 97 24 95 19 92
-                      C12 87 8 80 8 72
-                      V36
-                      C8 30 9 25 12 21
+                    <ellipse class="navcar-shadow" cx="42" cy="118" rx="27" ry="8"></ellipse>
+
+                    <!-- outer body -->
+                    <path class="navcar-body" d="M28 7
+                      C32 4 37 2 42 2
+                      C47 2 52 4 56 7
+                      L66 20
+                      C71 27 74 36 74 46
+                      V92
+                      C74 102 69 111 61 118
+                      C56 122 49 124 42 124
+                      C35 124 28 122 23 118
+                      C15 111 10 102 10 92
+                      V46
+                      C10 36 13 27 18 20
                       Z"></path>
-                    <path class="navcar-panel" d="M24 15 H48 C53 22 56 30 56 38 V68 C56 74 53 80 48 84 H24 C19 80 16 74 16 68 V38 C16 30 19 22 24 15 Z"></path>
-                    <path class="navcar-glass" d="M28 18 H44 C48 23 50 29 50 35 V69 C50 74 48 79 44 83 H28 C24 79 22 74 22 69 V35 C22 29 24 23 28 18 Z"></path>
-                    <rect class="navcar-roofline" x="30" y="28" width="12" height="42" rx="5"></rect>
-                    <path class="navcar-detail" d="M16 44 H56 M16 63 H56"></path>
-                    <path class="navcar-lights" d="M26 9 H46"></path>
-                    <path class="navcar-tail" d="M26 92 H46"></path>
-                    <rect class="navcar-wheel" x="8" y="28" width="7" height="18" rx="3"></rect>
-                    <rect class="navcar-wheel" x="57" y="28" width="7" height="18" rx="3"></rect>
-                    <rect class="navcar-wheel" x="8" y="58" width="7" height="18" rx="3"></rect>
-                    <rect class="navcar-wheel" x="57" y="58" width="7" height="18" rx="3"></rect>
+
+                    <!-- roof / cabin -->
+                    <path class="navcar-panel" d="M30 16
+                      H54
+                      C60 23 64 31 64 42
+                      V88
+                      C64 97 60 105 54 110
+                      H30
+                      C24 105 20 97 20 88
+                      V42
+                      C20 31 24 23 30 16 Z"></path>
+
+                    <!-- front windshield -->
+                    <path class="navcar-glass" d="M31 18
+                      H53
+                      C57 23 59 29 59 35
+                      V43
+                      H25
+                      V35
+                      C25 29 27 23 31 18 Z"></path>
+
+                    <!-- rear glass -->
+                    <path class="navcar-glass" d="M25 83
+                      H59
+                      V91
+                      C59 97 57 102 53 106
+                      H31
+                      C27 102 25 97 25 91 Z"></path>
+
+                    <!-- center roof -->
+                    <rect class="navcar-roofline" x="29" y="47" width="26" height="32" rx="6"></rect>
+
+                    <!-- hood lines -->
+                    <path class="navcar-detail" d="M34 10 V32 M42 9 V33 M50 10 V32"></path>
+
+                    <!-- side body lines -->
+                    <path class="navcar-detail" d="M21 49 H63"></path>
+                    <path class="navcar-detail" d="M21 80 H63"></path>
+
+                    <!-- front lights -->
+                    <path class="navcar-lights" d="M31 7 H53"></path>
+
+                    <!-- rear lights -->
+                    <path class="navcar-tail" d="M29 120 H55"></path>
+
+                    <!-- wheels -->
+                    <rect class="navcar-wheel" x="8" y="31" width="7" height="19" rx="3"></rect>
+                    <rect class="navcar-wheel" x="69" y="31" width="7" height="19" rx="3"></rect>
+                    <rect class="navcar-wheel" x="8" y="74" width="7" height="19" rx="3"></rect>
+                    <rect class="navcar-wheel" x="69" y="74" width="7" height="19" rx="3"></rect>
                   </g>
                 </svg>
               </div>
 
-                            <div class="route-bubble step-0" id="routeBubble0">
+              <div class="route-bubble step-0" id="routeBubble0">
                 <div class="route-bubble__pin"></div>
                 <div class="route-bubble__inner">
                   <div class="route-bubble__top">
